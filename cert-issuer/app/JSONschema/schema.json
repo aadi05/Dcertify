@@ -1,0 +1,12 @@
+{
+    "CertificateData":{},
+    "Metadata":{
+        "issuerId":"",
+        "date":"",
+        "Time":"",
+        "schemaVer":1
+    },
+    "MerkleRoot":0,
+    "MerkleProof":{}
+
+}
