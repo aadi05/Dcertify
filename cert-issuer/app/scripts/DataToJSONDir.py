@@ -12,6 +12,7 @@ class DataToJSONDir():
             reader = csv.reader(f)
             key = next(reader)
             dat = list(reader)
+            #print(dat)
 
         #loading the schema from the path
         with open(pathToJSONschema) as f:
@@ -32,6 +33,7 @@ class DataToJSONDir():
 
             jsonfile = open(os.path.join(pathToJSONblocks,name),'x')
             json.dump(data,jsonfile)
+            
             
 
             

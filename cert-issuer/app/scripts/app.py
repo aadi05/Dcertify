@@ -3,10 +3,12 @@ import os
 import tempfile
 import DataToJSONDir as dtj ,JSONblockstoCert as jtc
 import shutil
+
 app = Flask(__name__)
+#intialize logging
 #set schema 
-schema="/home/aditya/Documents/projects/src/app/JSONschema/schema.json"
-certificate="/home/aditya/Documents/projects/src/app/srcipts/certificate"
+schema = os.path.join(os.getcwd(),"JSONschema/schema.json")
+certificate = "/home/aditya/Documents/projects/app/srcipts/certificate"
 #instance of dependencies
 DataToJSON = dtj.DataToJSONDir()
 JSONToCert = jtc.JSONblockstoCert()
@@ -36,11 +38,17 @@ def form():
             shutil.rmtree(temp_dir[0])
             shutil.rmtree(temp_dir[1])  
             shutil.rmtree(temp_dir[2])
-            
-            return redirect("http://127.0.0.1:5000/getcerts", code=302)
+            return redirect("http://127.0.0.1:5000/getcert", code=302)
     return render_template('form.html')
 
-@app.route('/getcerts')
+@app.route('/getcert', methods=["GET","POST"])
+def generate_cert():
+    rootcount = JSONToCert.get_root_count()
+    if request.method =="POST":     
+            return redirect("http://127.0.0.1:5000/getcert/download", code=302)
+    return render_template('done.html',rootcount=rootcount)
+
+@app.route('/getcert/download')
 def download_file():
     return send_from_directory(certificate,
                                "certs.zip", as_attachment=True)  

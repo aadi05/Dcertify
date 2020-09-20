@@ -4,10 +4,52 @@
         <title>
             CertCreator Form
         </title>
+        <style>
+            .header {
+                height: fit-content;
+                width: 100%;
+                background:#005dc0;
+                color: #e0e0e0;
+                font-size: 24px;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                font-weight: 50;
+                }
+            .form-container{
+                padding: 4px 4px 4px 4px;
+                height: 180px;
+                width: fit-content;
+                margin: 0px 0px 0px 0px;
+                text-align: center;
+                background: white;
+                color: white;
+                font-size: 24px;
+                padding-bottom: 14px;
+                
+                box-shadow: 2px 2px rgb(0, 255, 85);
+            }
+            .form-header{
+                padding-top: 14px;
+                color: #005dc0;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                font-size: 15px;
+            }
+            .input-file{
+                color: #005dc0;
+                
+            }
+        </style>
     </head>
-    <body>
-        <h1>Thank YOU!!!!!</h1>
-
+    <body style="background-color: #005dc0;" >
+            <div class="header">
+                <h4 class="header-title" >CertCreator</h4>
+            </div>
+            <center>
+            <div class="form-container">
+                <h6 class="form-header">{{rootcount}}</h6>
+                <form  action="/getcert" method="POST" enctype="multipart/form-data">
+                    <input class= "input-submit" type="submit" value="Download">
+                </form> 
+            </div>
+        </center>    
     </body>
-
 </html>
